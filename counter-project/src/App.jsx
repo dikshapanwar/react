@@ -1,40 +1,36 @@
-import { useState } from 'react'
-function App() {
-  let [counter,setCounter] =useState(10);
+import { useState } from 'react';
 
-  //let counter = 10;
+function App() {
+  const [counter, setCounter] = useState(10);
+
   const addValue = () => {
-    counter = counter + 1;
-    setCounter(counter);
-    if (counter >25) {
-      setCounter(25);
-    }
-  
-   // console.log(counter);
-  }
+    // Use Math.min to cap the counter at 25
+    setCounter(prevCounter => Math.min(prevCounter + 1, 25));
+  };
+
   const removeValue = () => {
-    counter = counter - 1
-    setCounter(counter);
-    if (counter < 0) {
-      setCounter(0);
-    }
-   // console.log(counter);
-  }
+    // Use Math.max to ensure the counter doesn’t go below 0
+    setCounter(prevCounter => Math.max(prevCounter - 1, 0));
+  };
+
   return (
     <>
-      <h1>hello World</h1>
-      <h1>Counter Value:{counter}</h1>
-      <button
-        onClick={addValue}
-      >Add Value
-        {counter}
+      <h1>Hello World</h1>
+      <h1>Counter Value: {counter}</h1>
+      
+      <button onClick={addValue}>
+        Add Value
       </button>
+      
       <br />
-      <button
-        onClick={removeValue}>Remove Value{counter}</button>
+
+      <button onClick={removeValue}>
+        Remove Value
+      </button>
+
       <p>{counter}</p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
