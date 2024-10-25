@@ -4,12 +4,12 @@ function App() {
   const [counter, setCounter] = useState(10);
 
   const addValue = () => {
-    // Use Math.min to cap the counter at 25
+
     setCounter(prevCounter => Math.min(prevCounter + 1, 25));
   };
 
   const removeValue = () => {
-    // Use Math.max to ensure the counter doesn’t go below 0
+   
     setCounter(prevCounter => Math.max(prevCounter - 1, 0));
   };
 
