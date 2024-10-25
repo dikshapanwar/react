@@ -1,13 +1,32 @@
 import { useState } from 'react'
-
-
-
 function App() {
-  const [count, setCount] = useState(0)
+  let [counter,setCounter] =useState(10);
 
+  //let counter = 10;
+  const addValue = () => {
+    counter = counter + 1;
+    setCounter(counter);
+  
+   // console.log(counter);
+  }
+  const removeValue = () => {
+    counter = counter - 1
+    setCounter(counter);
+   // console.log(counter);
+  }
   return (
     <>
-    <h1>hello World</h1>
+      <h1>hello World</h1>
+      <h1>Counter Value:{counter}</h1>
+      <button
+        onClick={addValue}
+      >Add Value
+        {counter}
+      </button>
+      <br />
+      <button
+        onClick={removeValue}>Remove Value{counter}</button>
+      <p>{counter}</p>
     </>
   )
 }
