@@ -6,12 +6,18 @@ function App() {
   const addValue = () => {
     counter = counter + 1;
     setCounter(counter);
+    if (counter >25) {
+      setCounter(25);
+    }
   
    // console.log(counter);
   }
   const removeValue = () => {
     counter = counter - 1
     setCounter(counter);
+    if (counter < 0) {
+      setCounter(0);
+    }
    // console.log(counter);
   }
   return (
