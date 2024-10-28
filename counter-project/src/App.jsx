@@ -2,12 +2,10 @@ import { useState } from 'react';
 
 function App() {
   const [counter, setCounter] = useState(10);
-
   const addValue = () => {
 
     setCounter(prevCounter => Math.min(prevCounter + 1, 25));
   };
-
   const removeValue = () => {
    
     setCounter(prevCounter => Math.max(prevCounter - 1, 0));
