@@ -3,24 +3,20 @@ import {TodoProvider} from './context/TodoContext'
 import './App.css'
 import { TodoForm, TodoItem } from './components/Index'
 
-
 function App() {
   const [todos, setTodos] = useState([])
 
   const addTodo = (todo) => {
     setTodos((prev) => [{id: Date.now(), ...todo}, ...prev] )
   }
-
   const updateTodo = (id, todo) => {
     setTodos((prev) => prev.map((prevTodo) => (prevTodo.id === id ? todo : prevTodo )))
 
     
   }
-
   const deleteTodo = (id) => {
     setTodos((prev) => prev.filter((todo) => todo.id !== id))
   }
-
   const toggleComplete = (id) => {
     //console.log(id);
     setTodos((prev) => 
@@ -41,9 +37,6 @@ function App() {
     localStorage.setItem("todos", JSON.stringify(todos))
   }, [todos])
   
-
-
-
   return (
     <TodoProvider value={{todos, addTodo, updateTodo, deleteTodo, toggleComplete}}>
       <div className="bg-[#172842] min-h-screen py-8">
